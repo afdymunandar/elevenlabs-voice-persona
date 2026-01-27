@@ -1,0 +1,80 @@
+{
+  "calm": {
+    "description": "Calm, soft, emotionally stable voice",
+    "stability": 0.8,
+    "similarity_boost": 0.65,
+    "style": 0.3
+  },
+  "gentle": {
+    "description": "Gentle, warm, soft-spoken and kind tone",
+    "stability": 0.75,
+    "similarity_boost": 0.7,
+    "style": 0.35
+  },
+  "relaxed": {
+    "description": "Relaxed, friendly, natural speaking tone",
+    "stability": 0.7,
+    "similarity_boost": 0.7,
+    "style": 0.4
+  },
+  "confident": {
+    "description": "Clear, assertive, confident delivery",
+    "stability": 0.85,
+    "similarity_boost": 0.8,
+    "style": 0.6
+  },
+  "firm": {
+    "description": "Firm, controlled, authoritative but calm tone",
+    "stability": 0.8,
+    "similarity_boost": 0.75,
+    "style": 0.55
+  },
+  "angry": {
+    "description": "Angry, intense, emotionally charged delivery",
+    "stability": 0.35,
+    "similarity_boost": 0.6,
+    "style": 0.9
+  },
+  "nervous": {
+    "description": "Nervous, slightly shaky and uncertain tone",
+    "stability": 0.4,
+    "similarity_boost": 0.55,
+    "style": 0.75
+  },
+  "shy": {
+    "description": "Shy, quiet, hesitant and reserved voice",
+    "stability": 0.55,
+    "similarity_boost": 0.6,
+    "style": 0.45
+  },
+  "stuttering": {
+    "description": "Stuttering, broken rhythm, hesitant speech pattern",
+    "stability": 0.3,
+    "similarity_boost": 0.5,
+    "style": 0.85
+  },
+  "anxious": {
+    "description": "Anxious, tense, worried emotional state",
+    "stability": 0.3,
+    "similarity_boost": 0.5,
+    "style": 0.85
+  },
+  "panic": {
+    "description": "Panicked, rushed, emotionally unstable voice",
+    "stability": 0.2,
+    "similarity_boost": 0.45,
+    "style": 0.95
+  },
+  "fear": {
+    "description": "Fearful, restrained, trembling delivery",
+    "stability": 0.25,
+    "similarity_boost": 0.5,
+    "style": 0.9
+  },
+  "sad": {
+    "description": "Low energy, melancholic, emotionally heavy tone",
+    "stability": 0.6,
+    "similarity_boost": 0.6,
+    "style": 0.5
+  }
+}
