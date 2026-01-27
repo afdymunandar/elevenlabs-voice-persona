@@ -1,25 +1,44 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import 'dotenv/config';
+import axios from 'axios';
+import fs from 'fs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const API_KEY = process.env.ELEVENLABS_API_KEY;
+const VOICE_ID = process.env.ELEVENLABS_VOICE_ID;
+const emotions = JSON.parse(fs.readFileSync('./emotions.json'));
 
-// Load emotion config
-const emotionFile = path.join(__dirname, "emotions.json");
+const emotion = process.argv[2] || 'calm';
+const emotionSettings = emotions[emotion];
 
-if (!fs.existsSync(emotionFile)) {
-  console.error("❌ emotions.json not found");
+if (!emotionSettings) {
+  console.error(`❌ Emotion "${emotion}" not found`);
   process.exit(1);
 }
 
-const emotions = JSON.parse(fs.readFileSync(emotionFile, "utf-8"));
+const url = `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`;
 
-console.log("✅ App started");
-console.log("Loaded emotions:");
-console.table(
-  Object.keys(emotions).map((key) => ({
-    emotion: key,
-    description: emotions[key].description
-  }))
-);
+const payload = {
+  text: `This voice is speaking with ${emotion} emotion.`,
+  model_id: "eleven_multilingual_v2",
+  voice_settings: emotionSettings
+};
+
+async function run() {
+  try {
+    const response = await axios.post(url, payload, {
+      headers: {
+        'xi-api-key': API_KEY,
+        'Content-Type': 'application/json',
+        'Accept': 'audio/mpeg'
+      },
+      responseType: 'arraybuffer'
+    });
+
+    const fileName = `output-${emotion}.mp3`;
+    fs.writeFileSync(fileName, response.data);
+    console.log(`✅ Audio created: ${fileName}`);
+  } catch (err) {
+    console.error('❌ Error:', err.response?.data || err.message);
+  }
+}
+
+run();
