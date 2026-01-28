@@ -1,11 +1,3 @@
-# Environment variables
-.env
-
-# Dependencies
 node_modules/
-
-# Generated audio output
-output.mp3
-
-# OS junk
-.DS_Store
+.env
+/audio/output/
